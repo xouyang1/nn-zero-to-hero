@@ -1,7 +1,9 @@
+Reorganized with personal notes and reduced notebook code for future quick reference. 
 
 ## Neural Networks: Zero to Hero
+[YouTube lecture series](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ) from the basics to code/train NN.
 
-A course on neural networks that starts all the way at the basics. The course is a series of YouTube videos where we code and train neural networks together. The Jupyter notebooks we build in the videos are then captured here inside the [lectures](lectures/) directory. Every lecture also has a set of exercises included in the video description. (This may grow into something more respectable).
+Every lecture also has a set of exercises included in the video description. (This may grow into something more respectable).
 
 ---
 
