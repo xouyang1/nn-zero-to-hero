@@ -1,4 +1,4 @@
-## pytorch
+## PyTorch
 * `torch.tensor` vs ~~`torch.Tensor`~~: infers dtype vs sets to float
 * `torch.Tensor.view` returns a tensor that references same underlying data 
 http://blog.ezyang.com/2019/05/pytorch-internals/
