@@ -1,0 +1,9 @@
+[submodule "micrograd/micrograd"]
+	path = micrograd/micrograd
+	url = git@github.com:karpathy/micrograd.git
+[submodule "gpt/nanoGPT"]
+	path = gpt/nanoGPT
+	url = git@github.com:karpathy/nanoGPT.git
+[submodule "gpt/build-nanogpt"]
+	path = gpt/build-nanogpt
+	url = git@github.com:xouyang1/build-nanogpt.git
