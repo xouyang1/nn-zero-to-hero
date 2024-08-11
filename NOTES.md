@@ -133,21 +133,25 @@ GPT-3 paper hyperparameters: n_parameters n_layers, d_model=n_embd, n_heads, d_h
 ## Datasets 
 * DataLoader IMPL_: break up documents in a more random order to avoid spurious correlation across documents
 
-### Training mixtures
+### Training mixtures: Web-Scale Datasets
 CommonCrawl: large but very very noisy
 - HF [FineWeb](https://huggingface.co/spaces/HuggingFaceFW/blogpost-fineweb-v1) 2024-04 (15T tokens) - detailed methodology
     - data range: 2013 summer - 2024 winter
     - each filtering technique was evaluated by evaluating models trained on the filtered dataset (ablation models) 
         - training 1.8B parameter model on 28B tokens (~5h on 64 H100) vs 350B tokens (~2.5d)
+    - finding: deduplication of clusters with a low number of duplicates (~100) harmed performance when low quality data can get past filters 
+        - data with no duplicates may be worse quality/more out of distribution, ie ads or lists of keywords or bad formats
     - finding: CommonCrawl team filtering out adult content from 2022-2023 harmed quality
 - Cerebras RedPajama -> [SlimPajama](https://www.cerebras.net/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama) 2023-06-09 (627B tokens)
 
 ### Eval 
 - [EleutherAI LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness): "a unifying framework that allows any causal language model to be tested on the same exact inputs and codebase."
 
-#### Benchmarks 
+#### Benchmarks: Reasoning
 - HellaSwag (2019-05): no longer difficult - [96% accuracy]
 (https://paperswithcode.com/sota/sentence-completion-on-hellaswag) but provides early signal even on small models
     - methodology: adversarial filtering
     - smooth
     - IMPL_: for small models where LM not skilled in multiple choice, multiple choice questions can be tested by batching the options (B = num choices, T = longest completion, pad all other options) with shared context tokens and identifying the best mean loss option within the batch as the answer
+
+#### Benchmarks: HumanEval
